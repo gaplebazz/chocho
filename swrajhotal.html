@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Swaraj — Jaipur</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96B;
+      --cream: #F9F4EC;
+      --dark: #1A1208;
+      --dark2: #2B1E0A;
+      --terracotta: #B5582C;
+      --text: #3D2B1A;
+      --text-light: #7A6048;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(26, 18, 8, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--cream);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .nav-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      border: none;
+      padding: 0.65rem 1.6rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold-light);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26, 18, 8, 0.35) 0%, rgba(26, 18, 8, 0.15) 40%, rgba(26, 18, 8, 0.75) 100%),
+        url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.04);
+      animation: heroZoom 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from {
+        transform: scale(1.04);
+      }
+
+      to {
+        transform: scale(1.00);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 0 8rem 7rem;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: rgba(249, 244, 236, 0.75);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      border: none;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      border: 1px solid rgba(249, 244, 236, 0.4);
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* scroll indicator */
+    .scroll-ind {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(249, 244, 236, 0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(201, 168, 76, 0.8), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        height: 50px;
+      }
+
+      50% {
+        opacity: 1;
+        height: 70px;
+      }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--dark2);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stat {
+      flex: 1;
+      max-width: 220px;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(249, 244, 236, 0.45);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .about-images {
+      position: relative;
+      background: var(--dark);
+      overflow: hidden;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .about-img-overlay {
+      position: absolute;
+      bottom: 3rem;
+      right: -3rem;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 6px solid var(--cream);
+      box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.4);
+      transition: transform 0.5s ease;
+    }
+
+    .about-images:hover .about-img-overlay {
+      transform: translate(-8px, -8px);
+    }
+
+    .about-text {
+      padding: 6rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--cream);
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      line-height: 1.85;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .ornament {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: rgba(201, 168, 76, 0.1);
+      line-height: 1;
+      position: absolute;
+      top: 3rem;
+      right: 2rem;
+    }
+
+    /* ── ROOMS ── */
+    .rooms {
+      padding: 7rem 5rem;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rooms::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=1600&q=60') center/cover;
+      opacity: 0.04;
+    }
+
+    .rooms-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .rooms-header .section-tag {
+      justify-content: center;
+    }
+
+    .rooms-header .section-tag::before {
+      display: none;
+    }
+
+    .rooms-header .section-title {
+      color: var(--cream);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      position: relative;
+    }
+
+    .room-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .room-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .room-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 18, 8, 0.9) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      transition: background 0.4s;
+    }
+
+    .room-card:hover .room-overlay {
+      background: linear-gradient(to top, rgba(26, 18, 8, 0.95) 0%, rgba(26, 18, 8, 0.3) 55%);
+    }
+
+    .room-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .room-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .room-price {
+      font-size: 0.8rem;
+      color: rgba(249, 244, 236, 0.6);
+    }
+
+    .room-price strong {
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .room-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .room-card:hover .room-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── AMENITIES ── */
+    .amenities {
+      padding: 7rem 5rem;
+      background: var(--cream);
+    }
+
+    .amenities-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .amenity {
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      transition: background 0.3s, transform 0.3s;
+      cursor: default;
+    }
+
+    .amenity:hover {
+      background: var(--dark2);
+      transform: translateY(-6px);
+    }
+
+    .amenity:hover .amenity-name,
+    .amenity:hover .amenity-desc {
+      color: var(--cream);
+    }
+
+    .amenity-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .amenity-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      transition: color 0.3s;
+    }
+
+    .amenity-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      transition: color 0.3s;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 3px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: 1/3;
+      grid-row: 1/3;
+    }
+
+    .gallery-item:nth-child(4) {
+      grid-column: 4/6;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s;
+      filter: brightness(0.9);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+
+    /* ── DINING ── */
+    .dining {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 65vh;
+    }
+
+    .dining-img {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dining-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s;
+    }
+
+    .dining-img:hover img {
+      transform: scale(1.04);
+    }
+
+    .dining-text {
+      background: var(--dark2);
+      padding: 6rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .dining-text .section-title {
+      color: var(--cream);
+    }
+
+    .dining-text p {
+      color: rgba(249, 244, 236, 0.6);
+      line-height: 1.85;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .menu-item {
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      padding-top: 0.8rem;
+    }
+
+    .menu-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .menu-item-desc {
+      font-size: 0.75rem;
+      color: rgba(249, 244, 236, 0.4);
+    }
+
+    /* ── BOOKING ── */
+    .booking {
+      padding: 7rem 5rem;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .booking-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .booking-inner .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .booking-inner>p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 3rem;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 1px;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .form-field {
+      background: var(--cream);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .form-field label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .form-field input,
+    .form-field select {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--text);
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-field select {
+      cursor: pointer;
+    }
+
+    .booking-submit {
+      background: var(--gold);
+      border: none;
+      padding: 0 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dark);
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .booking-submit:hover {
+      background: var(--gold-light);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 7rem 5rem;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::after {
+      content: '❝';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20rem;
+      color: rgba(201, 168, 76, 0.04);
+      position: absolute;
+      top: -3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonials .section-tag {
+      justify-content: center;
+    }
+
+    .testimonials .section-tag::before {
+      display: none;
+    }
+
+    .testimonials .section-title {
+      color: var(--cream);
+      margin-bottom: 4rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    .testimonial {
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 2.5rem;
+      text-align: left;
+      transition: border-color 0.3s;
+    }
+
+    .testimonial:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.7;
+      display: block;
+      margin-bottom: 1.5rem;
+      quotes: "\201C" "\201D";
+    }
+
+    .testimonial q::before {
+      content: open-quote;
+    }
+
+    .testimonial q::after {
+      content: close-quote;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .reviewer-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      background: rgba(201, 168, 76, 0.1);
+      flex-shrink: 0;
+    }
+
+    .reviewer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.15rem;
+    }
+
+    .reviewer-from {
+      font-size: 0.72rem;
+      color: rgba(249, 244, 236, 0.35);
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-map {
+      background: var(--dark);
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(60%) contrast(1.1) sepia(20%);
+    }
+
+    .contact-info {
+      background: var(--terracotta);
+      padding: 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-info .section-tag {
+      color: rgba(249, 244, 236, 0.6);
+    }
+
+    .contact-info .section-tag::before {
+      background: rgba(249, 244, 236, 0.6);
+    }
+
+    .contact-info .section-title {
+      color: var(--cream);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      list-style: none;
+    }
+
+    .contact-details li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      color: rgba(249, 244, 236, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .contact-details .icon {
+      font-size: 1.1rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(249, 244, 236, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--cream);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .social-link:hover {
+      background: rgba(249, 244, 236, 0.15);
+      border-color: var(--cream);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 4rem 5rem 2rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(249, 244, 236, 0.4);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(249, 244, 236, 0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: rgba(249, 244, 236, 0.25);
+    }
+
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 18, 8, 0.92);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--cream);
+      max-width: 480px;
+      width: 90%;
+      padding: 3rem;
+      position: relative;
+      animation: modalIn 0.4s ease both;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-light);
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    .modal h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .modal-form input,
+    .modal-form select,
+    .modal-form textarea {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: var(--cream);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .modal-form input:focus,
+    .modal-form select:focus,
+    .modal-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .modal-form textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 1.2rem 2rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .hero-content {
+        padding: 0 4rem 5rem;
+      }
+
+      .about,
+      .dining,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img-overlay {
+        right: 1rem;
+      }
+
+      .dining-img {
+        min-height: 350px;
+      }
+
+      .rooms-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 220px);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: 1/3;
+        grid-row: 1/2;
+      }
+
+      .gallery-item:nth-child(4) {
+        grid-column: auto;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-form {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .booking-submit {
+        grid-column: 1/-1;
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero-content {
+        padding: 0 1.5rem 4rem;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .rooms,
+      .amenities,
+      .booking,
+      .testimonials {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-text,
+      .dining-text,
+      .contact-info {
+        padding: 3rem 1.5rem;
+      }
+
+      .rooms-grid,
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: 1/-1;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 3rem 1.5rem 1.5rem;
+      }
+
+      .booking-form {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        min-width: 50%;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#"><span>Hotel</span> Swaraj</a>
+    <ul class="nav-links">
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#dining">Dining</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="openModal()">Book Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Jaipur, Rajasthan ✦</span>
+      <h1>Where Royalty<br><em>Meets Comfort</em></h1>
+      <p>Experience the grandeur of Rajputana heritage blended seamlessly with modern luxury — a sanctuary in the heart
+        of the Pink City.</p>
+      <div class="hero-actions">
+        <a href="#rooms" class="btn-primary">Explore Rooms</a>
+        <a href="#dining" class="btn-ghost">Our Cuisine</a>
+      </div>
+    </div>
+    <div class="scroll-ind">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">48</div>
+      <div class="stat-label">Luxury Suites</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Guest Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">25+</div>
+      <div class="stat-label">Years of Legacy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Fine Dining Venues</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Memories Made</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-images">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80"
+        alt="Hotel exterior">
+      <img class="about-img-overlay" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=500&q=80"
+        alt="Hotel pool">
+    </div>
+    <div class="about-text" style="position:relative;">
+      <span class="ornament">ॐ</span>
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">A Palace of <em>Timeless</em><br>Rajasthani Elegance</h2>
+      <p>Founded in the spirit of <em>Swaraj</em> — self-rule and dignity — Hotel Swaraj was born from the vision of
+        celebrating India's most regal city through an experience that is authentically Rajasthani at its heart.</p>
+      <p>Every corridor is adorned with hand-painted <em>frescoes</em>, every room draped in hand-blocked fabrics from
+        the bazaars of Sanganer. We weave local craftsmanship into every comfort, offering you not just a stay, but a
+        living museum of Rajputana heritage.</p>
+      <p>Nestled near the historic walled city, we are moments from the Hawa Mahal, Amber Fort, and the vibrant Johari
+        Bazaar — yet a world apart in serenity.</p>
+      <a href="#rooms" class="btn-primary" style="margin-top:1rem; display:inline-block;">View Our Rooms</a>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="rooms" id="rooms">
+    <div class="rooms-header">
+      <div class="section-tag">Accommodations</div>
+      <h2 class="section-title" style="color:var(--cream)">Suites Fit for <em
+          style="color:var(--gold-light)">Royalty</em></h2>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Standard Room">
+        <div class="room-overlay">
+          <div class="room-type">Deluxe</div>
+          <div class="room-name">Jaipur Classic</div>
+          <div class="room-price">from <strong>₹4,500</strong> / night</div>
+          <div class="room-btn" onclick="openModal()">Reserve →</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80" alt="Heritage Suite">
+        <div class="room-overlay">
+          <div class="room-type">Suite</div>
+          <div class="room-name">Heritage Suite</div>
+          <div class="room-price">from <strong>₹8,200</strong> / night</div>
+          <div class="room-btn" onclick="openModal()">Reserve →</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80" alt="Royal Suite">
+        <div class="room-overlay">
+          <div class="room-type">Signature</div>
+          <div class="room-name">Maharaja Suite</div>
+          <div class="room-price">from <strong>₹18,000</strong> / night</div>
+          <div class="room-btn" onclick="openModal()">Reserve →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="amenities" id="amenities">
+    <div class="amenities-header">
+      <div class="section-tag">Experiences</div>
+      <h2 class="section-title">All the <em>Pleasures</em> of Royalty</h2>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity">
+        <span class="amenity-icon">🌊</span>
+        <div class="amenity-name">Rooftop Pool</div>
+        <div class="amenity-desc">Swim under Jaipur's sun with panoramic views of the Pink City skyline.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🧘</span>
+        <div class="amenity-name">Ayurvedic Spa</div>
+        <div class="amenity-desc">Ancient healing rituals using locally sourced herbs and oils, personalised for you.
+        </div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🍽️</span>
+        <div class="amenity-name">Fine Dining</div>
+        <div class="amenity-desc">Three signature restaurants serving authentic Rajasthani, Mughlai, and Continental
+          cuisine.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🎭</span>
+        <div class="amenity-name">Cultural Evenings</div>
+        <div class="amenity-desc">Nightly Kalbelia dance, folk music, and puppet shows under the stars.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🐪</span>
+        <div class="amenity-name">City Heritage Tours</div>
+        <div class="amenity-desc">Curated sunrise camel rides and guided excursions to Amber Fort and Nahargarh.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">💼</span>
+        <div class="amenity-name">Business Centre</div>
+        <div class="amenity-desc">State-of-the-art conference halls and a fully-equipped business lounge.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🚗</span>
+        <div class="amenity-name">Concierge & Transfers</div>
+        <div class="amenity-desc">24-hour personal concierge with luxury car transfers and airport pickups.</div>
+      </div>
+      <div class="amenity">
+        <span class="amenity-icon">🛍️</span>
+        <div class="amenity-name">Artisan Bazaar</div>
+        <div class="amenity-desc">In-house boutique featuring handcrafted Rajasthani jewellery, textiles, and miniature
+          art.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Hotel view">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Pool">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=80" alt="Restaurant">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600&q=80" alt="Spa">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&q=80" alt="Suite">
+      </div>
+    </div>
+  </section>
+
+  <!-- DINING -->
+  <section class="dining" id="dining">
+    <div class="dining-img">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Fine dining">
+    </div>
+    <div class="dining-text">
+      <div class="section-tag">Culinary Art</div>
+      <h2 class="section-title">Flavours of <em style="color:var(--gold-light)">Rajasthan</em></h2>
+      <p>Our chefs draw from centuries of royal Rajputana kitchens and fuse them with global techniques — every dish
+        tells a story of spice routes, trade and tradition.</p>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-name">Laal Maas</div>
+          <div class="menu-item-desc">Signature red meat curry</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Dal Baati Churma</div>
+          <div class="menu-item-desc">Rajasthan's soul food</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Ghewar</div>
+          <div class="menu-item-desc">Royal Jaipur sweet</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Ker Sangri</div>
+          <div class="menu-item-desc">Desert bean pickle</div>
+        </div>
+      </div>
+      <a href="#" class="btn-primary" style="display:inline-block; width:fit-content;">View Full Menu</a>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="booking" id="booking">
+    <div class="booking-inner">
+      <div class="section-tag" style="justify-content:center;">
+        <span style="width:30px;height:1px;background:var(--gold);display:inline-block;"></span>
+        Reserve
+      </div>
+      <h2 class="section-title">Begin Your <em>Royal</em> Journey</h2>
+      <p>Availability is limited. Book directly for the best rates, complimentary transfers, and exclusive early
+        check-in.</p>
+      <div class="booking-form">
+        <div class="form-field">
+          <label>Check In</label>
+          <input type="date" />
+        </div>
+        <div class="form-field">
+          <label>Check Out</label>
+          <input type="date" />
+        </div>
+        <div class="form-field">
+          <label>Room Type</label>
+          <select>
+            <option>Jaipur Classic</option>
+            <option>Heritage Suite</option>
+            <option>Maharaja Suite</option>
+          </select>
+        </div>
+        <button class="booking-submit" onclick="openModal()">Check Availability</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-tag">Guest Stories</div>
+    <h2 class="section-title">Voices of <em style="color:var(--gold-light)">Our Guests</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <q>Absolutely breathtaking. The Maharaja Suite made us feel like royalty. The attention to detail in the decor,
+          the food, the staff — nothing was left to chance. Jaipur will always hold a special place in our hearts,
+          partly because of Hotel Swaraj.</q>
+        <div class="reviewer">
+          <div class="reviewer-avatar">AM</div>
+          <div>
+            <div class="reviewer-name">Anjali Mehta</div>
+            <div class="reviewer-from">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <q>The rooftop pool at sunset, overlooking the city — it was a moment I will never forget. Staff went beyond
+          expectations to arrange a private heritage tour at 5 AM. Worth every rupee and more.</q>
+        <div class="reviewer">
+          <div class="reviewer-avatar">RS</div>
+          <div>
+            <div class="reviewer-name">Rahul Sharma</div>
+            <div class="reviewer-from">Delhi, India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <q>We chose Hotel Swaraj for our honeymoon and couldn't have made a better decision. The cultural evening with
+          folk dancers under the stars was magical. The Ayurvedic spa treatments were transformative.</q>
+        <div class="reviewer">
+          <div class="reviewer-avatar">PK</div>
+          <div>
+            <div class="reviewer-name">Priya & Karan</div>
+            <div class="reviewer-from">Bengaluru, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.0!2d75.8235!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db40b9cca1f4b%3A0x3b3c6ce79fc131e5!2sHawa%20Mahal%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen loading="lazy">
+      </iframe>
+    </div>
+    <div class="contact-info">
+      <div class="section-tag">Find Us</div>
+      <h2 class="section-title">Visit Hotel <em>Swaraj</em></h2>
+      <ul class="contact-details">
+        <li>
+          <span class="icon">📍</span>
+          <span>14, Sardar Patel Marg, Near Hawa Mahal, C-Scheme, Jaipur, Rajasthan 302001</span>
+        </li>
+        <li>
+          <span class="icon">📞</span>
+          <span>+91 141 400 1200<br>+91 98290 00000</span>
+        </li>
+        <li>
+          <span class="icon">✉️</span>
+          <span>reservations@hotelswaraj.com<br>info@hotelswaraj.com</span>
+        </li>
+        <li>
+          <span class="icon">⏰</span>
+          <span>Front Desk — 24 Hours<br>Check-in 2:00 PM · Check-out 11:00 AM</span>
+        </li>
+      </ul>
+      <div class="contact-social">
+        <a class="social-link" href="#" title="Instagram">📷</a>
+        <a class="social-link" href="#" title="Facebook">👍</a>
+        <a class="social-link" href="#" title="Twitter">🐦</a>
+        <a class="social-link" href="#" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="nav-logo" href="#"><span>Hotel</span> Swaraj</a>
+        <p>A celebration of Rajasthani heritage and contemporary luxury in the heart of the Pink City.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#rooms">Rooms & Suites</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#dining">Dining</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Weddings & Events</a></li>
+          <li><a href="#">Corporate Stays</a></li>
+          <li><a href="#">Heritage Tours</a></li>
+          <li><a href="#">Spa & Wellness</a></li>
+          <li><a href="#">Airport Transfers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Booking Policy</a></li>
+          <li><a href="#">Cancellation</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Hotel Swaraj, Jaipur. All rights reserved.</p>
+      <p>Made with ♥ in <a href="#">Rajasthan</a></p>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="modal" onclick="closeModalOnBg(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2>Reserve Your Suite</h2>
+      <p>Fill in the details below and our team will confirm your booking within 2 hours.</p>
+      <div class="modal-form">
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="tel" placeholder="Phone Number" />
+        <select>
+          <option value="">Select Room Type</option>
+          <option>Jaipur Classic — from ₹4,500/night</option>
+          <option>Heritage Suite — from ₹8,200/night</option>
+          <option>Maharaja Suite — from ₹18,000/night</option>
+        </select>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+          <input type="date" placeholder="Check In" />
+          <input type="date" placeholder="Check Out" />
+        </div>
+        <textarea placeholder="Special requests or notes..."></textarea>
+        <button class="btn-primary" style="width:100%;padding:1rem;font-size:0.78rem;"
+          onclick="alert('Thank you! Our team will contact you shortly. 🙏')">Confirm Reservation</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBg(e) {
+      if (e.target === document.getElementById('modal')) closeModal();
+    }
+
+    // Smooth nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
+      });
+    });
+
+    // Animate on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.amenity, .testimonial, .room-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
